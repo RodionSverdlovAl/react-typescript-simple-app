@@ -2,11 +2,12 @@ import { IUser } from "../types/types"
 
 interface UserItemProps {
     user: IUser;
+    onClick: (user:IUser) => void;
 }
 
-const UserItem:React.FC<UserItemProps> = ({user}) =>{
+const UserItem:React.FC<UserItemProps> = ({user, onClick}) =>{
     return(
-        <div className="user_item">
+        <div onClick={()=>onClick(user)} className="user_item">
             {user.id} {user.name}
             <p>Live in {user.address.city}</p>
              <p>Street: {user.address.street}</p>
